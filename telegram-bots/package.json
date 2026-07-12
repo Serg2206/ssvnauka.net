@@ -1,0 +1,15 @@
+{
+  "name": "ssvproff-telegram-bots",
+  "version": "1.0.0",
+  "description": "Telegram bots of Prof. Sergey V. Sushkov (ssvnauka.net)",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test 'test/*.test.js'",
+    "setup": "node scripts/setup.js",
+    "start": "node src/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
