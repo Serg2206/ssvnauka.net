@@ -3,6 +3,7 @@ import { BOTS } from './bots/index.js';
 import { createApi } from './core/api.js';
 import { handleUpdate } from './core/bot.js';
 import { loadEnv } from './core/env.js';
+import { resolveTokens } from './core/tokens.js';
 
 loadEnv();
 
@@ -29,14 +30,14 @@ async function pollBot(def, api) {
   }
 }
 
-const active = BOTS.filter((def) => process.env[def.tokenEnv]);
-if (active.length === 0) {
+const tokens = await resolveTokens();
+if (tokens.size === 0) {
   console.error('Ни один токен не задан. Заполните .env (см. .env.example) и повторите.');
   process.exit(1);
 }
 for (const def of BOTS) {
-  if (!process.env[def.tokenEnv]) {
-    console.warn(`[${def.username}] пропущен: не задан ${def.tokenEnv}`);
+  if (!tokens.has(def)) {
+    console.warn(`[${def.username}] пропущен: нет токена (${def.tokenEnv} или BOT_TOKENS)`);
   }
 }
-await Promise.all(active.map((def) => pollBot(def, createApi(process.env[def.tokenEnv]))));
+await Promise.all([...tokens].map(([def, token]) => pollBot(def, createApi(token))));

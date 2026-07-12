@@ -1,19 +1,22 @@
-// Регистрирует в Telegram имя, описания и команды каждого бота, у которого задан токен.
-// Запуск: npm run setup (токены — в .env, см. .env.example).
+// Регистрирует в Telegram имя, описания и команды каждого бота, у которого есть токен.
+// Запуск: npm run setup. Токены — в .env: либо персональные переменные,
+// либо общий список BOT_TOKENS (бот определяется автоматически).
 import { BOTS } from '../src/bots/index.js';
 import { createApi } from '../src/core/api.js';
 import { configureBot } from '../src/core/configure.js';
 import { loadEnv } from '../src/core/env.js';
+import { resolveTokens } from '../src/core/tokens.js';
 
 loadEnv();
+const tokens = await resolveTokens();
 
 let configured = 0;
 let failed = 0;
 
 for (const def of BOTS) {
-  const token = process.env[def.tokenEnv];
+  const token = tokens.get(def);
   if (!token) {
-    console.warn(`⏭  @${def.username}: пропущен — не задан ${def.tokenEnv}`);
+    console.warn(`⏭  @${def.username}: пропущен — нет токена (${def.tokenEnv} или BOT_TOKENS)`);
     continue;
   }
   try {
