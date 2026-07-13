@@ -1,2 +1,2 @@
 # ssvnauka.net
-Academic profile of Prof. Sergey V. Sushkov - surgeon, scientist, educator
+Academic profile of Prof. Sergey Valentinovich Sushkov - surgeon, scientist, educator
