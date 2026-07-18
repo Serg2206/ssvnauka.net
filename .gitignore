@@ -12,3 +12,14 @@ Desktop.ini
 *.tmp
 *.swp
 *.bak
+
+# Next.js build output
+.next/
+node_modules/
+
+# Local environment overrides
+.env.local
+.env.*.local
+
+# TypeScript incremental state
+tsconfig.tsbuildinfo
