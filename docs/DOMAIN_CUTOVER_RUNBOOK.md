@@ -18,7 +18,7 @@ Make both domains serve the same application output and pass multilingual smoke 
 
 ---
 
-## Option A (recommended): Cloudflare + Vercel (single Next.js origin)
+## Recommended Path: DNS + Vercel (single Next.js origin)
 
 Use this if Next.js dynamic routes and App Router are your source of truth.
 
@@ -35,7 +35,7 @@ Use this if Next.js dynamic routes and App Router are your source of truth.
 
 In Cloudflare zone for each domain:
 
-1. Remove or disable conflicting records that point to GitHub Pages.
+1. Remove or disable conflicting records that point to any legacy origin (including GitHub Pages).
 2. Create Vercel records according to Vercel domain instructions:
    - Apex: `A` record(s) to Vercel-provided IP (commonly `76.76.21.21`).
    - `www`: `CNAME` to Vercel-provided host (commonly `cname.vercel-dns.com`).
@@ -45,7 +45,7 @@ In Cloudflare zone for each domain:
 Important:
 
 - Use exactly the values shown by Vercel for your project.
-- Do not keep GitHub Pages A records active for the same hostname.
+- Do not keep legacy A records active for the same hostname.
 
 ### 3. Cloudflare cache and rules
 
@@ -79,35 +79,6 @@ Expected: all `PASS`.
 
 ---
 
-## Option B: Cloudflare + GitHub Pages (static-only)
-
-Use this only if you intentionally keep static HTML as source of truth.
-
-### Constraints
-
-- Next.js dynamic/admin/API behavior will not be available.
-- Locale behavior must be implemented in static pages and redirects.
-
-### 1. Align static locale paths
-
-1. Ensure these static files exist and render final localized content directly:
-   - `ru/diagnostika/rasshifrovka-gistologii/index.html`
-   - `uk/diagnostika/rasshifrovka-gistologii/index.html`
-   - `diagnostika/rasshifrovka-gistologii/index.html`
-2. Avoid depending on `?_lang=` if path-based checks are required.
-
-### 2. DNS model
-
-1. Point apex and `www` to GitHub Pages records only.
-2. Ensure `CNAME` file contains the canonical domain in this repo.
-3. Remove competing Vercel/other origin records.
-
-### 3. Verification
-
-Run the same smoke commands as Option A.
-
----
-
 ## Fast diagnostics during cutover
 
 ```powershell
@@ -132,4 +103,4 @@ Look for:
 
 ## Suggested decision
 
-For this repository, choose Option A (Cloudflare + Vercel) to match current Next.js architecture.
+For this repository, keep a single Next.js origin on Vercel and use DNS records that resolve only to Vercel.

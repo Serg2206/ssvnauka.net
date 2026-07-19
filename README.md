@@ -1,4 +1,4 @@
-# ssvnauka.net
+# ssvnauka.com
 
 Next.js App Router MVP for Prof. Sergiy Valentinovich Sushkov — surgeon, oncologist, scientist, and educator.
 
@@ -48,6 +48,8 @@ npm run build
 
 The intended deployment target is Vercel. See [docs/VERCEL.md](docs/VERCEL.md) for the build settings and environment variables.
 
+GitHub Pages is not used for production traffic in this repository.
+
 For domain/origin cutover and rollback steps, see [docs/DOMAIN_CUTOVER_RUNBOOK.md](docs/DOMAIN_CUTOVER_RUNBOOK.md).
 
 For cloud development environment setup in GitHub Codespaces, see [docs/CODESPACES.md](docs/CODESPACES.md).
@@ -82,3 +84,4 @@ Set these variables in Vercel and in your local `.env.local`:
 - The legacy static HTML files are preserved as source material.
 - Real medical data must not be persisted until a private database or storage layer is added.
 - The admin intake viewer is server-side only and requires both `ADMIN_ACCESS_TOKEN` and `INTAKE_POSTGRES_URL`.
+- This repository remains active and is not archived.
