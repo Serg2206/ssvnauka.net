@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HistologyDbLookup } from "@/components/histology-db-lookup";
 import { SiteFrame } from "@/components/site-frame";
 import { getHistologyToolCopy, histologyToolPath } from "@/lib/histology-tool-copy";
 import { getLocaleCopy, localePath, type Locale } from "@/lib/site-data";
@@ -79,6 +80,10 @@ export function HistologyToolPage({ locale }: { locale: Locale }) {
               </article>
             ))}
           </div>
+        </section>
+
+        <section className="panel">
+          <HistologyDbLookup locale={locale} />
         </section>
 
         <section className="panel">

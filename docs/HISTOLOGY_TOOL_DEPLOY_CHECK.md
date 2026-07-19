@@ -17,9 +17,9 @@ pwsh -File scripts/smoke-histology-tool.ps1 -BaseUrl "https://ssvnauka.com/diagn
 ## What it validates
 
 - HTTP 200 for:
-  - `?_lang=ru`
-  - `?_lang=uk`
-  - `?_lang=en`
+  - `/ru/diagnostika/rasshifrovka-gistologii/`
+  - `/uk/diagnostika/rasshifrovka-gistologii/`
+  - `/diagnostika/rasshifrovka-gistologii/`
 - Expected language marker in HTML for each language
 - Presence of Telegram CTA (`t.me/SSVproff_bot`)
 

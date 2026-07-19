@@ -1,0 +1,13 @@
+marker	category	positive_supports	negative_supports	note
+ER	Breast	Luminal phenotype	Triple-negative profile	Interpret in panel with PR, HER2, Ki-67
+PR	Breast	Hormone-sensitive phenotype	Triple-negative profile	Use together with ER and Ki-67
+HER2	Breast	HER2-driven tumor biology	No HER2 amplification pattern	Correlate IHC 2+ with ISH/FISH
+Ki-67	Proliferation	Higher proliferative index	Lower proliferative index	Thresholds depend on tumor type and guideline version
+PAX8	Gynecologic/Renal	Mullerian or renal origin support	Does not support these origins	Use with WT1, CK7, RCC markers
+WT1	Gynecologic	Serous ovarian phenotype support	Less supportive for serous phenotype	Interpret in context of morphology
+TTF-1	Lung/Thyroid	Pulmonary or thyroid origin support	Less supportive for pulmonary/thyroid origin	Use with Napsin A, thyroglobulin
+Napsin A	Lung	Pulmonary adenocarcinoma support	Less supportive for pulmonary adenocarcinoma	Use with TTF-1
+CDX2	GI	Intestinal differentiation support	Less supportive for intestinal origin	Use with CK20/CK7 pattern
+SATB2	GI	Colorectal differentiation support	Less supportive for colorectal origin	Use with CDX2 and morphology
+CK7	Cytokeratin	CK7-pattern tissues support	Opposite CK20-dominant pattern	Interpret as CK7/CK20 phenotype pair
+CK20	Cytokeratin	CK20-pattern tissues support	Opposite CK7-dominant pattern	Interpret as CK7/CK20 phenotype pair

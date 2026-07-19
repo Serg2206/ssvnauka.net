@@ -1,0 +1,20 @@
+{
+  "installedAtUtc": "2026-07-19T09:59:47.6934851Z",
+  "sources": {
+    "proteinAtlasZip": "https://www.proteinatlas.org/download/proteinatlas.tsv.zip",
+    "hgnc": "https://storage.googleapis.com/public-download-files/hgnc/tsv/tsv/hgnc_complete_set.txt",
+    "oncotreeVersions": "https://oncotree.mskcc.org/api/versions",
+    "oncotreeTumorTypes": "https://oncotree.mskcc.org/api/tumorTypes?version=oncotree_latest_stable"
+  },
+  "records": {
+    "oncotree": 897,
+    "hgnc": 45021,
+    "proteinAtlas": 20162
+  },
+  "normalizedFiles": [
+    "normalized/oncotree_tumor_types.min.json",
+    "normalized/hgnc_symbols.min.tsv",
+    "normalized/proteinatlas_markers.min.csv",
+    "normalized/ihc_reference.tsv"
+  ]
+}

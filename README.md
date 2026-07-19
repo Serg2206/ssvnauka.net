@@ -48,6 +48,8 @@ npm run build
 
 The intended deployment target is Vercel. See [docs/VERCEL.md](docs/VERCEL.md) for the build settings and environment variables.
 
+For domain/origin cutover and rollback steps, see [docs/DOMAIN_CUTOVER_RUNBOOK.md](docs/DOMAIN_CUTOVER_RUNBOOK.md).
+
 For cloud development environment setup in GitHub Codespaces, see [docs/CODESPACES.md](docs/CODESPACES.md).
 
 For the intake backend, see [docs/SUPABASE.md](docs/SUPABASE.md) for the recommended Supabase/Postgres schema and [docs/VERCEL.md](docs/VERCEL.md) for deployment variables.

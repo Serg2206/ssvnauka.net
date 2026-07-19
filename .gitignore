@@ -23,3 +23,8 @@ node_modules/
 
 # TypeScript incremental state
 tsconfig.tsbuildinfo
+
+# Local histology dataset caches and raw downloads
+data/histology-db/raw/
+data/histology-db/tmp/
+data/histology-db/normalized/proteinatlas_markers.min.csv
