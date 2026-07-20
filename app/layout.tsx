@@ -9,8 +9,8 @@ const displayFont = Cormorant_Garamond({ subsets: ["latin", "cyrillic"], variabl
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "ssvnauka.net",
-    template: "%s | ssvnauka.net"
+    default: "ssvnauka.com",
+    template: "%s | ssvnauka.com"
   },
   description: "Personalized surgical care, consultation intake, and service pages for Prof. Sergiy Valentinovich Sushkov.",
   robots: {

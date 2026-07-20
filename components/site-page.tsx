@@ -20,6 +20,18 @@ export function SitePage({ locale }: { locale: Locale }) {
               <Link className="button button--secondary" href={localePath(locale, "/clinic")}>
                 {copy.hero.secondaryCta}
               </Link>
+              <Link
+                className="button button--secondary button--patients"
+                href={`${localePath(locale, "/diagnostika/rasshifrovka-gistologii")}?audience=patients`}
+              >
+                {copy.hero.histologyPatientsCta}
+              </Link>
+              <Link
+                className="button button--secondary button--doctors"
+                href={`${localePath(locale, "/diagnostika/rasshifrovka-gistologii")}?audience=doctors`}
+              >
+                {copy.hero.histologyDoctorsCta}
+              </Link>
             </div>
             <ul className="chip-list">
               {copy.hero.highlights.map((item) => (
@@ -116,7 +128,7 @@ export function SitePage({ locale }: { locale: Locale }) {
                 "@type": "Person",
                 name: "Prof. Sergiy Valentinovich Sushkov",
                 jobTitle: ["Surgeon", "Oncologist", "Professor", "Researcher"],
-                url: "https://ssvnauka.net/",
+                url: "https://ssvnauka.com/",
                 email: "ssvproff@gmail.com",
                 sameAs: [
                   "https://orcid.org/0000-0002-6951-9789",
@@ -132,7 +144,7 @@ export function SitePage({ locale }: { locale: Locale }) {
                   addressLocality: "Kharkiv",
                   addressCountry: "UA"
                 },
-                url: "https://ssvnauka.net/"
+                url: "https://ssvnauka.com/"
               }
             ]
           })

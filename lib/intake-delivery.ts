@@ -148,7 +148,7 @@ function resolveDestinationKind() {
 
 function buildDeliveryContract(payload: unknown): IntakeDeliveryContract {
   return {
-    source: "ssvnauka.net",
+    source: "ssvnauka.com",
     destination: getDestinationName(),
     destinationKind: resolveDestinationKind(),
     payload
@@ -383,7 +383,7 @@ async function storeIntakeInPostgres(payload: IntakeSubmissionPayload) {
       [
         payload.requestId,
         payload.submittedAt,
-        "ssvnauka.net",
+        "ssvnauka.com",
         payload.intake.fullName,
         payload.intake.contactValue,
         payload.intake.contactMethod,

@@ -4,6 +4,22 @@ import { buildHistologyToolMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildHistologyToolMetadata("en");
 
-export default function HistologyToolRoute() {
-  return <HistologyToolPage locale="en" />;
+function resolveAudience(value: string | string[] | undefined) {
+  const normalized = Array.isArray(value) ? value[0] : value;
+  if (normalized === "patients" || normalized === "doctors") {
+    return normalized;
+  }
+
+  return "default";
+}
+
+export default async function HistologyToolRoute({
+  searchParams
+}: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
+  const resolvedSearchParams = await searchParams;
+  const audience = resolveAudience(resolvedSearchParams.audience);
+
+  return <HistologyToolPage locale="en" audience={audience} />;
 }

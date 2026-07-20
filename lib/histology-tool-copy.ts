@@ -6,6 +6,9 @@ type HistologyToolCopy = {
   kicker: string;
   title: string;
   description: string;
+  audienceIntroDefault: string;
+  audienceIntroPatients: string;
+  audienceIntroDoctors: string;
   discussTitle: string;
   discussItems: string[];
   receiveTitle: string;
@@ -33,6 +36,9 @@ const copy: Record<Locale, HistologyToolCopy> = {
     kicker: "Histology and diagnostics",
     title: "Expert Interpretation of a Pathology Report",
     description: "Clear explanation of key terms in histology and IHC reports and what they may mean for next clinical steps.",
+    audienceIntroDefault: "Choose your path: practical explanation for patients or a concise structured view for clinicians.",
+    audienceIntroPatients: "Patient mode: plain-language interpretation focused on understanding the report and discussing next steps with your doctor.",
+    audienceIntroDoctors: "Doctor mode: concise interpretation focused on morphology, IHC markers, and practical communication for treatment planning.",
     discussTitle: "What Can Be Reviewed",
     discussItems: [
       "Postoperative histology reports",
@@ -116,6 +122,9 @@ const copy: Record<Locale, HistologyToolCopy> = {
     kicker: "Гистология и диагностика",
     title: "Экспертная интерпретация гистологического заключения",
     description: "Понятное объяснение ключевых терминов гистологии и ИГХ и их значения для дальнейшей тактики.",
+    audienceIntroDefault: "Выберите формат: понятное объяснение для пациента или структурированный разбор для врача.",
+    audienceIntroPatients: "Режим для пациентов: объяснение простым языком, чтобы понять заключение и обсудить следующий шаг с лечащим врачом.",
+    audienceIntroDoctors: "Режим для врачей: краткий структурированный разбор с акцентом на морфологию, ИГХ-маркеры и практическую коммуникацию тактики.",
     discussTitle: "Что Можно Разобрать",
     discussItems: [
       "Гистологические заключения после операций",
@@ -199,6 +208,9 @@ const copy: Record<Locale, HistologyToolCopy> = {
     kicker: "Гістологія та діагностика",
     title: "Експертна інтерпретація гістологічного висновку",
     description: "Зрозуміле пояснення ключових термінів гістології та ІГХ і їх значення для подальшої тактики.",
+    audienceIntroDefault: "Оберіть формат: зрозуміле пояснення для пацієнта або структурований розбір для лікаря.",
+    audienceIntroPatients: "Режим для пацієнтів: пояснення простою мовою, щоб краще зрозуміти висновок і обговорити наступний крок з лікарем.",
+    audienceIntroDoctors: "Режим для лікарів: стислий структурований розбір з акцентом на морфологію, ІГХ-маркери та практичну комунікацію тактики.",
     discussTitle: "Що Можна Розібрати",
     discussItems: [
       "Гістологічні висновки після операцій",

@@ -4,9 +4,17 @@ import { SiteFrame } from "@/components/site-frame";
 import { getHistologyToolCopy, histologyToolPath } from "@/lib/histology-tool-copy";
 import { getLocaleCopy, localePath, type Locale } from "@/lib/site-data";
 
-export function HistologyToolPage({ locale }: { locale: Locale }) {
+export type HistologyAudience = "default" | "patients" | "doctors";
+
+export function HistologyToolPage({ locale, audience = "default" }: { locale: Locale; audience?: HistologyAudience }) {
   const copy = getHistologyToolCopy(locale);
   const commonCopy = getLocaleCopy(locale);
+  const audienceIntro =
+    audience === "patients"
+      ? copy.audienceIntroPatients
+      : audience === "doctors"
+        ? copy.audienceIntroDoctors
+        : copy.audienceIntroDefault;
 
   return (
     <SiteFrame locale={locale} path={histologyToolPath}>
@@ -16,6 +24,7 @@ export function HistologyToolPage({ locale }: { locale: Locale }) {
             <p className="eyebrow">{copy.kicker}</p>
             <h1>{copy.title}</h1>
             <p className="lead">{copy.description}</p>
+            <p className="audience-intro">{audienceIntro}</p>
             <div className="hero-actions">
               <a
                 className="button button--primary"

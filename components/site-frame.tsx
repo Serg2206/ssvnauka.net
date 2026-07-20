@@ -17,7 +17,7 @@ export function SiteFrame({ locale, path = "/", children }: Props) {
         <div className="site-topbar__inner">
           <Link className="brand" href={localePath(locale, "/")}>
             <span className="brand__mark">SV</span>
-            <span className="brand__text">ssvnauka.net</span>
+            <span className="brand__text">ssvnauka.com</span>
           </Link>
           <nav className="site-nav" aria-label="Primary navigation">
             <Link href={localePath(locale, "/")}>{copy.nav.home}</Link>
@@ -36,7 +36,7 @@ export function SiteFrame({ locale, path = "/", children }: Props) {
       </header>
       {children}
       <footer className="site-footer">
-        <p>Prof. Sergiy Valentinovich Sushkov · ssvnauka.net</p>
+        <p>Prof. Sergiy Valentinovich Sushkov · ssvnauka.com</p>
       </footer>
     </div>
   );

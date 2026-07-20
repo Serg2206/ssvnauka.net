@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "verify:domain": "bash ./scripts/verify-domain-canonical.sh ssvnauka.com",
+    "verify:domain:www": "bash ./scripts/verify-domain-canonical.sh www.ssvnauka.com"
   },
   "dependencies": {
     "next": "^15.4.1",

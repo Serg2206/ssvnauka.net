@@ -1,4 +1,4 @@
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ssvnauka.net";
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ssvnauka.com";
 
 export const locales = ["en", "ru", "uk"] as const;
 export type Locale = (typeof locales)[number];
@@ -44,6 +44,8 @@ type LocaleCopy = {
     copy: string;
     primaryCta: string;
     secondaryCta: string;
+    histologyPatientsCta: string;
+    histologyDoctorsCta: string;
     highlights: string[];
   };
   services: {
@@ -116,6 +118,8 @@ export const siteCopy: Record<Locale, LocaleCopy> = {
       copy: "Prof. Sergiy Sushkov combines decades of clinical practice with minimally invasive techniques for oncology, abdominal disease, and urgent surgery.",
       primaryCta: "Request consultation",
       secondaryCta: "Explore services",
+      histologyPatientsCta: "Histology tool for patients",
+      histologyDoctorsCta: "Histology tool for doctors",
       highlights: ["40+ years of experience", "Laparoscopic surgery", "Cancer surgery"]
     },
     services: {
@@ -245,6 +249,8 @@ export const siteCopy: Record<Locale, LocaleCopy> = {
       copy: "Профессор Сергей Сушков сочетает многолетнюю практику и малоинвазивные методы в онкологии, абдоминальной и неотложной хирургии.",
       primaryCta: "Записаться на консультацию",
       secondaryCta: "Посмотреть услуги",
+      histologyPatientsCta: "Расшифровка гистологии для пациентов",
+      histologyDoctorsCta: "Расшифровка гистологии для врачей",
       highlights: ["40+ лет опыта", "Лапароскопия", "Онкохирургия"]
     },
     services: {
@@ -374,6 +380,8 @@ export const siteCopy: Record<Locale, LocaleCopy> = {
       copy: "Професор Сергій Сушков поєднує багаторічну практику і малоінвазивні методики в онкології, абдомінальній та невідкладній хірургії.",
       primaryCta: "Записатися на консультацію",
       secondaryCta: "Переглянути послуги",
+      histologyPatientsCta: "Розшифрування гістології для пацієнтів",
+      histologyDoctorsCta: "Розшифрування гістології для лікарів",
       highlights: ["40+ років досвіду", "Лапароскопія", "Онкохірургія"]
     },
     services: {

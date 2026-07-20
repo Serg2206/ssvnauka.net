@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { getHistologyToolCopy, histologyToolPath } from "@/lib/histology-tool-copy";
 import { absoluteUrl, localePath, type Locale, type ServiceSlug, getLocaleCopy, getServiceCopy } from "@/lib/site-data";
 
-export function buildAlternates(basePath: string) {
+export function buildAlternates(locale: Locale, basePath: string) {
   return {
-    canonical: absoluteUrl(basePath),
+    canonical: absoluteUrl(localePath(locale, basePath)),
     languages: {
       en: absoluteUrl(localePath("en", basePath)),
       ru: absoluteUrl(localePath("ru", basePath)),
@@ -15,7 +15,7 @@ export function buildAlternates(basePath: string) {
 }
 
 export function buildLocaleMetadata(locale: Locale, basePath: string, title: string, description: string): Metadata {
-  const alternates = buildAlternates(basePath);
+  const alternates = buildAlternates(locale, basePath);
 
   return {
     title,
@@ -25,7 +25,7 @@ export function buildLocaleMetadata(locale: Locale, basePath: string, title: str
       title,
       description,
       url: absoluteUrl(localePath(locale, basePath)),
-      siteName: "ssvnauka.net",
+      siteName: "ssvnauka.com",
       type: "website"
     },
     twitter: {
@@ -43,7 +43,7 @@ export function buildHomeMetadata(locale: Locale): Metadata {
 
 export function buildClinicMetadata(locale: Locale): Metadata {
   const copy = getLocaleCopy(locale);
-  return buildLocaleMetadata(locale, "/clinic", `${copy.clinic.title} | ssvnauka.net`, copy.clinic.copy);
+  return buildLocaleMetadata(locale, "/clinic", `${copy.clinic.title} | ssvnauka.com`, copy.clinic.copy);
 }
 
 export function buildServiceMetadata(locale: Locale, slug: ServiceSlug): Metadata {

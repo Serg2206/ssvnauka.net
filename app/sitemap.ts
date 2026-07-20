@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
+import { histologyToolPath } from "@/lib/histology-tool-copy";
 import { absoluteUrl, localePath, locales, serviceSlugs } from "@/lib/site-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const basePaths = ["/", "/clinic", ...serviceSlugs.map((slug) => `/services/${slug}`)];
+  const basePaths = ["/", "/clinic", histologyToolPath, ...serviceSlugs.map((slug) => `/services/${slug}`)];
 
   return locales.flatMap((locale) =>
     basePaths.map((path) => ({
