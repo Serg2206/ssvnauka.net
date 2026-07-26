@@ -28,3 +28,5 @@ tsconfig.tsbuildinfo
 data/histology-db/raw/
 data/histology-db/tmp/
 data/histology-db/normalized/proteinatlas_markers.min.csv
+.vercel
+.env*
