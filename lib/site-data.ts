@@ -1,4 +1,7 @@
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ssvnauka.com";
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ssvnauka.net";
+
+// Клинический сайт (RU) — пациентская версия на отдельном домене
+export const comSiteUrl = "https://ssvnauka.com";
 
 export const locales = ["en", "ru", "uk"] as const;
 export type Locale = (typeof locales)[number];
@@ -99,6 +102,7 @@ type LocaleCopy = {
     telegram: string;
     phone: string;
     city: string;
+    address: string;
   };
   servicesDetail: Record<ServiceSlug, ServiceCopy>;
 };
@@ -114,7 +118,7 @@ export const siteCopy: Record<Locale, LocaleCopy> = {
     },
     hero: {
       eyebrow: "Surgeon • Oncologist • Scientist • Educator",
-      title: "Personalized surgical care for complex conditions in Kharkiv.",
+      title: "Surgeon & Oncologist in Kharkiv",
       copy: "Prof. Sergiy Sushkov combines decades of clinical practice with minimally invasive techniques for oncology, abdominal disease, and urgent surgery.",
       primaryCta: "Request consultation",
       secondaryCta: "Explore services",
@@ -196,8 +200,9 @@ export const siteCopy: Record<Locale, LocaleCopy> = {
     contacts: {
       email: "ssvproff@gmail.com",
       telegram: "@SSVproff",
-      phone: "+380000000000",
-      city: "Kharkiv, Ukraine"
+      phone: "+380 67 570 79 49",
+      city: "Kharkiv, Ukraine",
+      address: "7-B Sirokhinska St., Kharkiv, Ukraine"
     },
     servicesDetail: {
       "laparoscopic-surgery": {
@@ -245,7 +250,7 @@ export const siteCopy: Record<Locale, LocaleCopy> = {
     },
     hero: {
       eyebrow: "Хирург • Онколог • Учёный • Преподаватель",
-      title: "Персонализированная хирургическая помощь при сложных состояниях в Харькове.",
+      title: "Хирург и онколог в Харькове",
       copy: "Профессор Сергей Сушков сочетает многолетнюю практику и малоинвазивные методы в онкологии, абдоминальной и неотложной хирургии.",
       primaryCta: "Записаться на консультацию",
       secondaryCta: "Посмотреть услуги",
@@ -327,8 +332,9 @@ export const siteCopy: Record<Locale, LocaleCopy> = {
     contacts: {
       email: "ssvproff@gmail.com",
       telegram: "@SSVproff",
-      phone: "+380000000000",
-      city: "Харьков, Украина"
+      phone: "+380 67 570 79 49",
+      city: "Харьков, Украина",
+      address: "ул. Сирохинская, 7-Б, Харьков"
     },
     servicesDetail: {
       "laparoscopic-surgery": {
@@ -376,7 +382,7 @@ export const siteCopy: Record<Locale, LocaleCopy> = {
     },
     hero: {
       eyebrow: "Хірург • Онколог • Вчений • Викладач",
-      title: "Персоналізована хірургічна допомога при складних станах у Харкові.",
+      title: "Хірург і онколог у Харкові",
       copy: "Професор Сергій Сушков поєднує багаторічну практику і малоінвазивні методики в онкології, абдомінальній та невідкладній хірургії.",
       primaryCta: "Записатися на консультацію",
       secondaryCta: "Переглянути послуги",
@@ -458,8 +464,9 @@ export const siteCopy: Record<Locale, LocaleCopy> = {
     contacts: {
       email: "ssvproff@gmail.com",
       telegram: "@SSVproff",
-      phone: "+380000000000",
-      city: "Харків, Україна"
+      phone: "+380 67 570 79 49",
+      city: "Харків, Україна",
+      address: "вул. Сірохінська, 7-Б, Харків"
     },
     servicesDetail: {
       "laparoscopic-surgery": {

@@ -1,6 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SiteFrame } from "@/components/site-frame";
-import { localePath, serviceSlugs, type Locale, getLocaleCopy } from "@/lib/site-data";
+import { absoluteUrl, localePath, serviceSlugs, type Locale, getLocaleCopy } from "@/lib/site-data";
 
 export function SitePage({ locale }: { locale: Locale }) {
   const copy = getLocaleCopy(locale);
@@ -40,7 +41,15 @@ export function SitePage({ locale }: { locale: Locale }) {
             </ul>
           </div>
           <div className="hero__visual">
-            <img src="/assets/doctor-hero.svg" alt="Prof. Sergiy Valentinovich Sushkov" />
+            <Image
+              src="/professor-photo.jpg"
+              alt="Prof. Sergiy Valentinovich Sushkov"
+              width={853}
+              height={1280}
+              priority
+              sizes="(min-width: 900px) 420px, 90vw"
+              style={{ width: "100%", height: "auto", borderRadius: 24 }}
+            />
           </div>
         </section>
 
@@ -126,10 +135,14 @@ export function SitePage({ locale }: { locale: Locale }) {
             "@graph": [
               {
                 "@type": "Person",
+                "@id": "https://ssvnauka.com/#person",
                 name: "Prof. Sergiy Valentinovich Sushkov",
                 jobTitle: ["Surgeon", "Oncologist", "Professor", "Researcher"],
                 url: "https://ssvnauka.com/",
+                image: absoluteUrl("/professor-photo.jpg"),
                 email: "ssvproff@gmail.com",
+                medicalSpecialty: ["Surgical", "Oncologic"],
+                worksFor: { "@id": "https://ssvnauka.com/#clinic" },
                 sameAs: [
                   "https://orcid.org/0000-0002-6951-9789",
                   "https://www.scopus.com/authid/detail.uri?authorId=55360196800",
@@ -138,13 +151,50 @@ export function SitePage({ locale }: { locale: Locale }) {
               },
               {
                 "@type": "MedicalBusiness",
+                "@id": "https://ssvnauka.com/#clinic",
                 name: "Medical Center MARIA",
+                telephone: copy.contacts.phone,
                 address: {
                   "@type": "PostalAddress",
+                  streetAddress: "вул. Сірохінська, 7-Б",
                   addressLocality: "Kharkiv",
                   addressCountry: "UA"
                 },
-                url: "https://ssvnauka.com/"
+                url: "https://ssvnauka.com/",
+                employee: { "@id": "https://ssvnauka.com/#person" }
+              },
+              {
+                "@type": "FAQPage",
+                "@id": absoluteUrl(localePath(locale, "/#faq")),
+                mainEntity: copy.faq.items.map((item) => ({
+                  "@type": "Question",
+                  name: item.question,
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: item.answer
+                  }
+                }))
+              },
+              {
+                "@type": "Review",
+                "@id": absoluteUrl(localePath(locale, "/#review")),
+                reviewRating: {
+                  "@type": "Rating",
+                  ratingValue: "5",
+                  bestRating: "5",
+                  worstRating: "1"
+                },
+                author: {
+                  "@type": "Person",
+                  name: "Medical Center MARIA"
+                },
+                itemReviewed: {
+                  "@type": "MedicalBusiness",
+                  "@id": "https://ssvnauka.com/#clinic",
+                  name: "Medical Center MARIA"
+                },
+                reviewBody: "Professional surgical and oncological medical services.",
+                datePublished: "2026-07-03"
               }
             ]
           })

@@ -16,7 +16,7 @@ export function ClinicPage({ locale }: { locale: Locale }) {
             <p className="lead">{copy.clinic.copy}</p>
             <p className="notice">{copy.clinic.emergencyNotice}</p>
             <div className="contact-pills">
-              <span>{copy.clinic.locationLabel}: {copy.contacts.city}</span>
+              <span>{copy.clinic.locationLabel}: {copy.contacts.address}</span>
               <span>{copy.clinic.emailLabel}: <a href={`mailto:${copy.contacts.email}`}>{copy.contacts.email}</a></span>
               <span>{copy.clinic.telegramLabel}: <a href="https://t.me/SSVproff" target="_blank" rel="noreferrer">{copy.contacts.telegram}</a></span>
               <span>{copy.clinic.phoneLabel}: <a href={`tel:${copy.contacts.phone}`}>{copy.contacts.phone}</a></span>
@@ -24,8 +24,8 @@ export function ClinicPage({ locale }: { locale: Locale }) {
           </div>
           <div className="hero__visual hero__visual--map">
             <iframe
-              src="https://www.google.com/maps?q=Kharkiv%2C%20Ukraine&z=12&output=embed"
-              title="Kharkiv map"
+              src={`https://www.google.com/maps?q=${encodeURIComponent("Медицинский центр МАРИЯ, вул. Сірохінська 7-Б, Харків")}&z=16&output=embed`}
+              title="Medical Center MARIA location"
               loading="lazy"
             />
           </div>

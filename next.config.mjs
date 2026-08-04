@@ -9,6 +9,16 @@ const securityHeaders = [
 const nextConfig = {
   reactStrictMode: true,
   outputFileTracingRoot: process.cwd(),
+  async redirects() {
+    return [
+      // RU/UK-аудитория обслуживается на ssvnauka.com (клинический сайт).
+      // После создания /ua/ на .com поменять destination для /uk.
+      { source: "/ru", destination: "https://ssvnauka.com/", permanent: true },
+      { source: "/ru/:path*", destination: "https://ssvnauka.com/", permanent: true },
+      { source: "/uk", destination: "https://ssvnauka.com/", permanent: true },
+      { source: "/uk/:path*", destination: "https://ssvnauka.com/", permanent: true }
+    ];
+  },
   async headers() {
     return [
       {

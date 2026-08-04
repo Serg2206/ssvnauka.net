@@ -2,7 +2,7 @@ import Link from "next/link";
 import { HistologyDbLookup } from "@/components/histology-db-lookup";
 import { SiteFrame } from "@/components/site-frame";
 import { getHistologyToolCopy, histologyToolPath } from "@/lib/histology-tool-copy";
-import { getLocaleCopy, localePath, type Locale } from "@/lib/site-data";
+import { absoluteUrl, getLocaleCopy, localePath, type Locale } from "@/lib/site-data";
 
 export type HistologyAudience = "default" | "patients" | "doctors";
 
@@ -136,6 +136,23 @@ export function HistologyToolPage({ locale, audience = "default" }: { locale: Lo
           </div>
         </section>
       </main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            name: copy.howTitle,
+            description: copy.description,
+            url: absoluteUrl(localePath(locale, histologyToolPath)),
+            step: copy.howSteps.map((step) => ({
+              "@type": "HowToStep",
+              name: step.title,
+              text: step.description
+            }))
+          })
+        }}
+      />
     </SiteFrame>
   );
 }
